@@ -1,3 +1,5 @@
 FRAGEN
 
 Dürfen wir Opals in Python nutzen und auch so dann abgeben?
+
+Ist unsere Idee (Klassen in QGIS definieren und Maschine Learning) in Ordnung?

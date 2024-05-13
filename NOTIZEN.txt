@@ -1,2 +1,7 @@
 NOTIZEN
 
+Klassen in QGIS definieren (Polygone)
+Test und Train Set daraus
+Maschine Learning auf ganzen Datensatz
+vor und nach Maschine Learning Statistik je Klassen, Infos der FWF nutzen
+Parameter experimentiell ändern, evtl. schauen, welche den größten Einfluss haben, vllt PCA?
