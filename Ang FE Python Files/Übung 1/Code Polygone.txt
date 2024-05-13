@@ -1,0 +1,63 @@
+raster_geom = dc_wien.raster_geometry
+
+loaded_data = dc_wien.load_available_bands_by_pixels(ul_col, ul_row, col_size, row_size)
+loaded_data
+
+loaded_data_geom = raster_geom.slice_by_rc(ul_col, ul_row, col_size, row_size)
+
+dst_filepath = f'/home/{USER}/my_new_file.tiff'
+
+write_tags = {'geotransform': loaded_data_geom.geotrans,
+              'spatialreference': loaded_data_geom.sref.wkt}
+
+write_tiff(dst_filepath, red=bild[:, :, 0], green=bild[:, :, 1], blue=bild[:, :, 2], tags_dict=write_tags)
+
+forest_polygons_path = f"/home/{USER}/groups/group_1/forest.geojson"
+
+forest_polygons = PolygonCollection.from_geojson_file(forest_polygons_path)
+
+forest_geom = forest_polygons.ogr_multipolygon
+
+forest_polygon_dict = forest_polygons.polygon_dictionary
+
+def remove_empty_polygons(poly_dict):
+    """ 
+    Removes all entries (ids and values) from your polygon dictionary where the `ogr.Geometry` object is empty. 
+    
+    Parameters
+    ----------
+    poly_dict : dict
+        Dictionary containing a map between polygon IDs and `ogr.Geometry` polygons.
+    
+    Notes
+    -----
+    Modifies object in place.
+    
+    """
+    polygons_to_remove = []
+    for poly_id, poly in poly_dict.items():
+        if poly.IsEmpty():
+            polygons_to_remove.append(poly_id)
+
+    for key in polygons_to_remove:
+        del poly_dict[key]
+        
+remove_empty_polygons(forest_polygon_dict)
+
+dc_wien = dc.filter_spatially_by_tilename("E052N016T1")
+dc_wien = dc_wien.filter_by_dimension(datetime.date(2017, 7, 20), name="time")
+
+some_polygon_id = list(forest_polygon_dict)[0]
+some_polygon = forest_polygon_dict[some_polygon_id]
+
+some_polygon_data = dc_wien.load_available_bands_by_geom(some_polygon, apply_mask=True)
+
+forest_data_dict = {poly_id: dc_wien.load_available_bands_by_geom(poly, apply_mask=True) for poly_id, poly in forest_polygon_dict.items()}
+
+mean_forest_data_dict = {poly_id: poly_xar.mean(dim='time', skipna=True) for poly_id, poly_xar in forest_data_dict.items()}
+
+num_of_bands = 9
+
+X_forest_data = np.concatenate([poly_xar.to_array().values.reshape(num_of_bands, -1).T for _, poly_xar in mean_forest_data_dict.items()])
+X_forest_data.shape
+
