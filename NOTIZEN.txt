@@ -1,6 +1,13 @@
 NOTIZEN
 
-Klassen in QGIS definieren (Polygone)
+Klassen in QGIS definieren (Polygone):
+Klassen: 
+- Vegetation
+- Gras (auch Felder, kleine Feldfrüchte)
+- Buildings (alle Farben)
+- Sealed Areas (Straßen, Parkplätze, Feldwege)
+- Others (Pools, Teich, kleine Container, Autos)
+
 Test und Train Set daraus
 Maschine Learning auf ganzen Datensatz
 vor und nach Maschine Learning Statistik je Klassen, Infos der FWF nutzen
