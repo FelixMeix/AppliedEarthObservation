@@ -1,0 +1,3 @@
+FRAGEN
+
+Dürfen wir Opals in Python nutzen und auch so dann abgeben?
