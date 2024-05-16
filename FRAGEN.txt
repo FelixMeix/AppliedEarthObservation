@@ -1,5 +1,7 @@
 FRAGEN
 
-Dürfen wir Opals in Python nutzen und auch so dann abgeben?
+Idee mit Klassifikationstool hätten keinen Code bzw. Workflow niedergeschrieben... td okay!
 
-Ist unsere Idee (Klassen in QGIS definieren und Maschine Learning) in Ordnung?
+Wie kombiniert man die Stripes? - er meinte Region Filter und als Input alle drei Streifen angeben
+
+Maschine learning in Opals? - nein, machen wir in Python
