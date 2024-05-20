@@ -11,7 +11,7 @@ import os
 #Felix:
 path = r'C:\Users\felix\OneDrive\Dokumente\TU Wien\Applied Earth Observation\2_2_Urban_Full_Waveform_Classification'
 #Bettina:
-#path = r'Bitte den Pfad angeben'
+path = r'C:\Users\betti\OneDrive\STUDIUM\SS24\Applied Earth Observation\2_2_Urban_Full_Waveform_Classification'
 #Theresa:
 #path = r'Bitte den Pfad angeben'
 #Max:
@@ -38,14 +38,27 @@ queryWin = pyDM.Window(limit.xmin, limit.ymin, limit.xmax, limit.ymax)
 
 lf = pyDM.AddInfoLayoutFactory()
 type, inDM = lf.addColumn(dm, "Id", True); assert inDM == True
-type, inDM = lf.addColumn(dm, "Classification", True); assert inDM == True
+type, inDM = lf.addColumn(dm, "Classification", True); assert inDM == True #ist das unsere Klasse? @Felix
 type, inDM = lf.addColumn(dm, "Amplitude", True); assert inDM == True
+type, inDM = lf.addColumn(dm, "EchoWidth", True); assert inDM == True
+type, inDM = lf.addColumn(dm, "CrossSection", True); assert inDM == True
+type, inDM = lf.addColumn(dm, "EchoNumber", True); assert inDM == True
+type, inDM = lf.addColumn(dm, "NrOfEchos", True); assert inDM == True
+type, inDM = lf.addColumn(dm, "RGIndex", True); assert inDM == True
+type, inDM = lf.addColumn(dm, "Reflectance", True); assert inDM == True
+type, inDM = lf.addColumn(dm, "Range", True); assert inDM == True
+type, inDM = lf.addColumn(dm, "_IncidenceAngle", True); assert inDM == True
+type, inDM = lf.addColumn(dm, "NormalizedZ", True); assert inDM == True
+type, inDM = lf.addColumn(dm, "NormalSigma0", True); assert inDM == True
+type, inDM = lf.addColumn(dm, "Gamma", True); assert inDM == True
+type, inDM = lf.addColumn(dm, "Sigma", True); assert inDM == True
 layout = lf.getLayout()
 
 result = pyDM.NumpyConverter.searchPoint(dm, queryWin, layout, withCoordinates=True)
 
-#Mashine learning
+#Maschine learning
 
+#test numpy array
 
 
 
