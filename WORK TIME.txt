@@ -1,5 +1,8 @@
 WORK TIME
 
+all:
 13.5. 10h - 15:30 (Daten anschauen, QGIS Polygons, Basic Workflow, Opals...)
 
-Bettina 20.5. ca. 4 h: Maschine Learning Code preparation & first try classification to csv
+Bettina: 
+20.5. ca. 4 h: Maschine Learning Code preparation & first try classification to csv
+25.5. ca. 4 h: Maschine Learning Code continue

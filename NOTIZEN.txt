@@ -11,4 +11,9 @@ Klassen:
 Test und Train Set daraus
 Maschine Learning auf ganzen Datensatz
 vor und nach Maschine Learning Statistik je Klassen, Infos der FWF nutzen
-Parameter experimentiell ändern, evtl. schauen, welche den größten Einfluss haben, vllt PCA?
+Parameter experimentiell ändern, evtl. schauen, welche den größten Einfluss haben, vllt PCA
+
+Next ToDo's:
+EchoRatio und Normalized_Z berechnen
+evtl. auch DensityRatio berechnen
+relevante Features exportieren (herausfinden, welches Sigma und wieso manche nicht gehen)
